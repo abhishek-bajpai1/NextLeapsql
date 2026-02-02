@@ -1,0 +1,7 @@
+SELECT 
+    employee_name,
+    starting_salary
+FROM 
+    university_salaries
+WHERE 
+    job_title = 'Associate Professor';
