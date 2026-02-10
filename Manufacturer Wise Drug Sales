@@ -1,0 +1,13 @@
+SELECT 
+    manufacturer,
+    '$' || CAST(sales_million AS INTEGER) || ' million' AS sale
+FROM (
+    SELECT 
+        manufacturer,
+        ROUND(SUM(total_sales) / 1000000.0) AS sales_million
+    FROM pharmacy_sales
+    GROUP BY manufacturer
+) t
+ORDER BY 
+    sales_million DESC,
+    manufacturer ASC;
